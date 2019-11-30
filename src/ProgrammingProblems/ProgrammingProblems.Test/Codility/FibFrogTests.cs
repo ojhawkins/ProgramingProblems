@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections;
 using NUnit.Framework;
 using ProgrammingProblems.Codility;
 
@@ -9,13 +6,13 @@ namespace ProgrammingProblems.Test.Codility
 {
     public class FibFrogTests
     {
-        [TestCaseSource(typeof(FibFrogTestCases), "TestCases")]
-        public void F(int[] steps, int minStepsAnswer)
+        [TestCaseSource(typeof(FibFrogTestCases), nameof(FibFrogTestCases.TestCases))]
+        public int F(int[] steps)
         {
             var fibFrog = new FibFrog();
             var solution = fibFrog.Solution(steps);
 
-            Assert.AreEqual(minStepsAnswer, solution);
+            return solution;
         }
     }
 
@@ -25,7 +22,11 @@ namespace ProgrammingProblems.Test.Codility
         {
             get
             {
-                yield return new TestCaseData(new[] { 0, 0 }).Returns(4);
+                yield return new TestCaseData(new[] { 0, 0 }).Returns(1);
+                yield return new TestCaseData(new[] { 0 }).Returns(1);
+                yield return new TestCaseData(new[] { 0, 0, 0, 0 }).Returns(1);
+                yield return new TestCaseData(new[] { 1, 0, 0 }).Returns(2);
+                yield return new TestCaseData(new[] { 0, 0, 0, 0, 1, 0, 0, 0, 0 }).Returns(2);
             }
         }
     }

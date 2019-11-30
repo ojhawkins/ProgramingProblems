@@ -9,8 +9,10 @@ namespace ProgrammingProblems.Codility
             var length = A.Length;
             var fibSet = FibSet(length);
 
-            var positions = new HashSet<int>() {length};
-            for (var j = 0; ; j++)
+            var positions = new HashSet<int> {length};
+
+            //Start at "1" jump
+            for (var j = 1; ; j++)
             {
                 var nextPositions = new HashSet<int>();
                 foreach (var i in positions)
@@ -37,15 +39,15 @@ namespace ProgrammingProblems.Codility
                         {
                             nextPositions.Add(p);
                         }
-
-                        if (nextPositions.Count == 0)
-                        {
-                            return -1;
-                        }
-
-                        positions = nextPositions;
                     }
                 }
+
+                if (nextPositions.Count == 0)
+                {
+                    return -1;
+                }
+
+                positions = nextPositions;
             }
         }
 

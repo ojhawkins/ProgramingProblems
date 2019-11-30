@@ -7,7 +7,7 @@ namespace ProgrammingProblems.Test.Codility
     public class FibFrogTests
     {
         [TestCaseSource(typeof(FibFrogTestCases), nameof(FibFrogTestCases.TestCases))]
-        public int F(int[] steps)
+        public int Fib_frog_solution_returns_the_correct_answer(int[] steps)
         {
             var fibFrog = new FibFrog();
             var solution = fibFrog.Solution(steps);

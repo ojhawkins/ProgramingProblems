@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProgrammingProblems.Codility
 {
-    class FrogJmp
+    public class FrogJmp
     {
+        public int Solution(int x, int y, int d)
+        {
+            return (int)Math.Ceiling((decimal) (y - x) / d);
+        }
     }
 }
